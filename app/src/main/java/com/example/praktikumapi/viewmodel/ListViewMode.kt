@@ -11,10 +11,13 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 class ListViewModel : ViewModel() {
+
+    // inisialisasi
     private val photosService = PhotosService()
     private val disposable = CompositeDisposable()
     val photos = MutableLiveData<List<Photo>>()
 
+    //buat method fetch
     fun fetchData() {
         disposable.add(
             photosService.getPhotos()
@@ -31,6 +34,7 @@ class ListViewModel : ViewModel() {
         )
     }
 
+    //clear saat fase onCleared
     override fun onCleared() {
         super.onCleared()
         disposable.clear()

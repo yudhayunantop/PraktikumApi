@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    //inisialisasi viewModel dan adapter
     lateinit var viewModel: ListViewModel
     private val photoListAdapter = PhotoListAdapter(arrayListOf())
 
@@ -18,9 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //fetch data
         viewModel = ViewModelProviders.of(this).get(ListViewModel::class.java)
         viewModel.fetchData()
 
+        //apply data ke RecyclerView
         rv_list.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = photoListAdapter
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         observeViewModel()
     }
 
+    //update data misal muncul data baru
     fun observeViewModel() {
         viewModel.photos.observe(this, Observer { photos ->
             photos?.let {

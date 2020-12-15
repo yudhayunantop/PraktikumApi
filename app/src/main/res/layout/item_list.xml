@@ -7,6 +7,7 @@
     android:layout_marginBottom="8dp"
     android:layout_height="wrap_content">
 
+    <!--CardView-->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,6 +19,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp">
 
+            <!--Gambar List-->
             <ImageView
                 android:id="@+id/img_gambar"
                 android:layout_width="80dp"
@@ -28,6 +30,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:srcCompat="@tools:sample/avatars" />
 
+            <!--id Gambar-->
             <TextView
                 android:id="@+id/idGambar"
                 android:layout_width="wrap_content"
@@ -37,6 +40,7 @@
                 app:layout_constraintStart_toEndOf="@+id/img_gambar"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <!--Judul Gambar-->
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="0dp"
@@ -47,6 +51,7 @@
                 app:layout_constraintStart_toEndOf="@id/img_gambar"
                 app:layout_constraintTop_toBottomOf="@+id/idGambar" />
 
+            <!--URL Gambar-->
             <TextView
                 android:id="@+id/url"
                 android:layout_width="0dp"

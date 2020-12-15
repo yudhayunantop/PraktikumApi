@@ -15,12 +15,14 @@ import kotlinx.android.synthetic.main.item_list.view.*
 
 class PhotoListAdapter(var photos: ArrayList<Photo>) : RecyclerView.Adapter<PhotoListAdapter.ViewHolder>() {
 
+    //handle list saat muncul data baru
     fun updatePhotos(newPhotos: List<Photo>) {
         photos.clear()
         photos.addAll(newPhotos)
         notifyDataSetChanged()
     }
 
+    //inisialisasi item list RecyclerView
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int) = ViewHolder(
         LayoutInflater.from(parent.context).inflate(R.layout.item_list, parent, false)
     )
@@ -32,6 +34,7 @@ class PhotoListAdapter(var photos: ArrayList<Photo>) : RecyclerView.Adapter<Phot
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        //render data kedalam recyclerView
         fun bind(photos: Photo) {
             itemView.idGambar.text = photos.id.toString()
             itemView.tvTitle.text = photos.title

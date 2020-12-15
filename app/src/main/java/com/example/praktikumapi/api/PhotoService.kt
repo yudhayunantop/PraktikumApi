@@ -7,9 +7,12 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 class PhotosService {
+
+    // memasukkan link kedalam variable
     private val BASE_URL = "https://jsonplaceholder.typicode.com/"
     private val api: PhotosApi
 
+    // inisialisasi api
     init {
         api = Retrofit.Builder()
             .baseUrl(BASE_URL)
@@ -19,6 +22,7 @@ class PhotosService {
             .create(PhotosApi::class.java)
     }
 
+    //get data
     fun getPhotos(): Single<List<Photo>> {
         return api.getPhotos()
     }
